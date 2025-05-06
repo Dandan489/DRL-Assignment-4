@@ -128,7 +128,7 @@ class SACAgent:
         
         self.auto_entropy_tuning = auto_entropy_tuning
         if self.auto_entropy_tuning:
-            self.target_entropy = -self.action_dim  # -dim(A)
+            self.target_entropy = -self.action_dim
             self.log_alpha = torch.zeros(1, requires_grad=True, device=device)
             self.alpha_optimizer = optim.Adam([self.log_alpha], lr=lr_alpha)
             self.alpha = self.log_alpha.exp().item()
